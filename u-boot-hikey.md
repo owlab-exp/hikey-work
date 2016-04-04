@@ -43,8 +43,7 @@ This is also from the README included in u-boot source.
 ```
 wget -P ./bin https://builds.96boards.org/releases/hikey/linaro/binaries/15.05/mcuimage.bin
 ```
-#
-## Build ATF
+### Build ATF
 ```
 https://github.com/96boards/arm-trusted-firmware.git
 cd ./arm-trusted-firmware
@@ -136,3 +135,57 @@ The operation has completed successfully.
 16896 bytes (17 kB) copied, 0.000280356 s, 60.3 MB/s
 + rm -f /tmp/linux-8g.CgCoGp
 ```
+### Generate ptable.img
+This is adapted from `u-boot/board/hisilicon/hikey/README
+```
+python gen_loader.py -o ../bin/ptable.img --img_prm_ptable=./prm_ptable.img --img_sec_ptable=./sec_ptable.img
+cd ..
+```
+
+## Flashing all
+### Get Recovery tool
+```
+git clone https://github.com/96boards/burn-boot.git
+```
+### Get nvme.img
+```
+wget -P ./bin https://builds.96boards.org/releases/hikey/linaro/binaries/latest/nvme.img
+```
+### Get boo-fat.uefi.img and debian
+```
+wget https://builds.96boards.org/releases/hikey/linaro/debian/latest/boot-fat.uefi.img.gz
+wget https://builds.96boards.org/releases/hikey/linaro/debian/latest/hikey-jessie_developer_20151130-387-8g.emmc.img.gz
+gunzip boot-fat.uefi.img.gz
+gunzip hikey-jessie_developer_20151130-387-8g.emmc.img.gz
+```
+### Prepare the board
+1. Power off the board
+2. Close jumper 1-2 and jumpter 3-4
+3. Connect USB OTG port to you PC
+4. Power on
+
+### Run the recovery tool
+The /dev/ttyUSB0 might be different in your PC. For example, /dev/ttyUSB1.
+```
+sudo ./burn-boot/hisi-idt.py -d /dev/ttyUSB0 --img1=./bin/l-loader.bin
+```
+if succeeded, `sudo fastboot devices` will show a message like following:
+```
+0123456789ABCDEF	fastboot
+```
+### Flash images to the eMMC.
+```
+sudo fastboot flash ptable ./bin/ptable.img
+sudo fastboot flash fastboot ./bin/fip-hikey.bin
+sudo fastboot flash nvme ./bin/nvme.img
+```
+### And also flash Linux
+```
+sudo fastboot flash boot boot-fat.uefi.img
+sudo fastboot flash system hikey-jessie_developer_20151130-387-8g.emmc.img
+```
+### Post flash task
+1. Power off the board
+2. Open jumper 3-4
+3. Disconnect the OTG cable from the board
+4. Power on
