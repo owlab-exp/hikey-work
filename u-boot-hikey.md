@@ -11,11 +11,19 @@ export PATH="${PWD}/arm-tc/bin:${PWD}/arm64-tc/bin:$PATH"
 export CC=${PWD}/arm64-tc/bin/aarch64-linux-gnu-
 ```
 ## Build U-Boot
+### Downlaod
 ```
 lftp -c get ftp://ftp.denx.de/pub/u-boot/u-boot-2016.03.tar.bz2
 mkdir u-boot
 tar --strip-components=1 -C ${PWD}/u-boot -xvjf u-boot-2016.03.tar.bz2
 cd u-boot
+```
+### Change HiKey specific configurations
+```
+vi include/configs/hikey.h
+```
+- #define CONFIG_BOOTARGS "console=**ttyAMA0**,115200n8 root=/dev/mmcblk0p9 rw" to #define CONFIG_BOOTARGS "console=**ttyAMA3**,115200n8 root=/dev/mmcblk0p9 rw"
+```
 make CROSS_COMPILE=${CC} hikey_defconfig
 make CROSS_COMPILE=${CC}
 ```
