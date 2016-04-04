@@ -13,6 +13,7 @@ make
 ```
 ### Notes
 - As of writing, the u-boot-latest.tar.bz2 -> u-boot-2016.01.tar.bz2
+- change ttyAMA0 to ttyAMA3
 
 ## Cross-compilation on Ubuntu 14.04 x86_64
 ```
