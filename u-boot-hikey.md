@@ -25,7 +25,10 @@ vi include/configs/hikey.h
 | Before | After |
 |--------|-------|
 |#define CONFIG_BOOTARGS "console=**ttyAMA0**,115200n8 root=/dev/mmcblk0p9 rw" | #define CONFIG_BOOTARGS "console=**ttyAMA3**,115200n8 root=/dev/mmcblk0p9 rw" |
+|#define PHYS_SDRAM_1_SIZE        0x3EFFFFFF | #define PHYS_SDRAM_1_SIZE       0x7EFFFFFF |
 ```
+mkdir -p ../bin
 make CROSS_COMPILE=${CC} hikey_defconfig
 make CROSS_COMPILE=${CC}
+cp u-boot.bin ../bin/u-boot-hikey.bin
 ```
