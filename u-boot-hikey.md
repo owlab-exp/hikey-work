@@ -18,11 +18,13 @@ mkdir u-boot
 tar --strip-components=1 -C ${PWD}/u-boot -xvjf u-boot-2016.03.tar.bz2
 cd u-boot
 ```
-### Change HiKey specific configurations
+### Change HiKey specific configurations for 2G RAM/8G EMMC 
 ```
 vi include/configs/hikey.h
 ```
-- #define CONFIG_BOOTARGS "console=**ttyAMA0**,115200n8 root=/dev/mmcblk0p9 rw" to #define CONFIG_BOOTARGS "console=**ttyAMA3**,115200n8 root=/dev/mmcblk0p9 rw"
+| Before | After |
+|--------|-------|
+|#define CONFIG_BOOTARGS "console=**ttyAMA0**,115200n8 root=/dev/mmcblk0p9 rw" | #define CONFIG_BOOTARGS "console=**ttyAMA3**,115200n8 root=/dev/mmcblk0p9 rw" |
 ```
 make CROSS_COMPILE=${CC} hikey_defconfig
 make CROSS_COMPILE=${CC}
