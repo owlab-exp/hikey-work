@@ -51,7 +51,7 @@ cp ../u-boot/board/hisilicon/hikey/build-tf.mak .
 make -f  build-tf.mak build
 cd ..
 ```
-### Get l-loader & build ptagle.img
+### Get l-loader & build ptable.img
 ```
 git clone https://github.com/96boards/l-loader.git
 cd l-loader
