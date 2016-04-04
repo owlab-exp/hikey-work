@@ -26,6 +26,8 @@ vi include/configs/hikey.h
 |--------|-------|
 |#define CONFIG_BOOTARGS "console=**ttyAMA0**,115200n8 root=/dev/mmcblk0p9 rw" | #define CONFIG_BOOTARGS "console=**ttyAMA3**,115200n8 root=/dev/mmcblk0p9 rw" |
 |#define PHYS_SDRAM_1_SIZE        0x3EFFFFFF /* 1024M - 16M */| #define PHYS_SDRAM_1_SIZE       0x7EFFFFFF /* 2048M - 16M |
+
+(According to `./board/hisilicon/hikey/README`)
 ```
 mkdir -p ../bin
 make CROSS_COMPILE=${CC} hikey_defconfig
