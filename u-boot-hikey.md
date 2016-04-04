@@ -36,3 +36,9 @@ make CROSS_COMPILE=${CC}
 cd ..
 cp ./u-boot/u-boot.bin ./bin/u-boot-hikey.bin
 ```
+## ARM Trusted Firmware (ATF) & l-loader
+This is also from the README included in u-boot source.
+### Download BL30 mcu binary
+```
+wget -P ./bin https://builds.96boards.org/releases/hikey/linaro/binaries/15.05/mcuimage.bin
+```
