@@ -29,3 +29,5 @@ cd u-boot
 make CROSS_COMPILE=${CC} hikey_defconfig
 make CROSS_COMPILE=${CC}
 ```
+## TODO
+- Mixing u-boot and arm trusted firmware
