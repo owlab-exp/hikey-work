@@ -15,6 +15,6 @@ docker run -it --rm --net=host -v $(pwd)/mnt-img:/var/lib/tftpboot --name tftpd 
 
 setenv serverip 192.168.0.200
 
-tftpboot 0x10000000 Image
-tftpboot 0x13000000 hi6220-hikey.dtb
-booti 0x10000000 - 0x13000000
+tftpboot 0x00080000 Image
+tftpboot 0x02000000 hi6220-hikey.dtb
+booti 0x00080000 - 0x02000000
