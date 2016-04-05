@@ -34,7 +34,7 @@ Refer to the include README (`./u-boot/board/hisilicon/hikey/README`)
 ```
 mkdir -p ../bin
 cd u-boot
-make CROSS_COMPILE=${CC} hikey_defconfig
+make CROSS_COMPILE=${CC} hikey_config
 make CROSS_COMPILE=${CC}
 cd ..
 cp ./u-boot/u-boot.bin ./bin/u-boot-hikey.bin
