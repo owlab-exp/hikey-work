@@ -25,3 +25,9 @@ tftpboot 0x02000000 hi6220-hikey.dtb
 booti 0x00080000 - 0x02000000
 ```
 - /working/aarch64-devel/hikey-uefi/u-boot/include/configs/hikey.h
+
+## Make kernel image for u-boot
+On a running HiKey
+```
+mkimage -A arm64 -O linux -T kernel -C none -a 0x00080000 -e 0x02000000 -n 'Linux linaro-alip-1 3.18.0-linaro-hikey' -d /boot/Image uImage
+```
