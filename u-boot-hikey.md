@@ -25,6 +25,9 @@ vi ./u-boot/include/configs/hikey.h
 |--------|-------|
 |#define CONFIG_BOOTARGS "console=**ttyAMA0**,115200n8 root=/dev/mmcblk0p9 rw" | #define CONFIG_BOOTARGS "console=**ttyAMA3**,115200n8 root=/dev/mmcblk0p9 rw" |
 |#define PHYS_SDRAM_1_SIZE        0x3EFFFFFF /* 1024M - 16M */| #define PHYS_SDRAM_1_SIZE       0x7EFFFFFF /* 2048M - 16M |
+| | #define CONFIG_CMD_EXT4 /* EXT4 support */ |
+| | #define CONFIG_SYS_BOOTM_LEN (16 << 20) /* Increase max image size */ |
+| | #define CONFIG_DWC2_DFLT_SPEED_FULL |
 
 ### Build
 Refer to the include README (`./u-boot/board/hisilicon/hikey/README`)
