@@ -31,3 +31,18 @@ On a running HiKey, if mkimage is absent, then `sudo apt-get install u-boot-tool
 ```
 mkimage -A arm64 -O linux -T kernel -C none -a 0x00080000 -e 0x02000000 -n 'Linux linaro-alip-1 3.18.0-linaro-hikey' -d /boot/Image uImage
 ```
+# mmcinfo when MMC is recoginzed
+```
+=> mmcinfo
+Device: HiKey DWMMC
+Manufacturer ID: 74
+OEM: 4a60
+Name: USDU1 
+Tran Speed: 50000000
+Rd Block Len: 512
+SD version 3.0
+High Capacity: Yes
+Capacity: 15 GiB
+Bus Width: 4-bit
+Erase Group Size: 512 Bytes
+```
