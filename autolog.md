@@ -1,5 +1,9 @@
-# From USB Drive
-
+### u-boot-2016.03/drivers/mmc/hi6220_dw_mmc.c
+```
+#define MMC0_DEFAULT_FREQ       25000000 /* 25MHz */
+```
+## Boot from u-boot shell
+### From USB Drive
 ```
 setenv bootargs console=ttyAMA3,115200 root=/dev/sda2 rootwait rw quiet efi=noruntime
 usb reset
@@ -12,7 +16,7 @@ fatload usb 0:1 0x02000000 hi6220-hikey.dtb
 
 booti 0x00080000 - 0x02000000
 ```
-# From TFTPD
+### From TFTPD
 
 sudo mount -o loop,rw,sync,offset=32256 hikey-jessie_developer_20151130-387mg mnt-img
 docker run -it --rm --net=host -v $(pwd)/mnt-img:/var/lib/tftpboot --name tftpd drerik/tftpd
@@ -31,7 +35,7 @@ On a running HiKey, if mkimage is absent, then `sudo apt-get install u-boot-tool
 ```
 mkimage -A arm64 -O linux -T kernel -C none -a 0x00080000 -e 0x02000000 -n 'Linux linaro-alip-1 3.18.0-linaro-hikey' -d /boot/Image uImage
 ```
-# mmcinfo when MMC is recoginzed
+## mmcinfo when MMC is recoginzed
 ```
 => mmcinfo
 Device: HiKey DWMMC
