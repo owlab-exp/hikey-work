@@ -1,3 +1,36 @@
+## linux/arch/arm64/boot/dts/hi6220.dtsi
+```
+1029 dwmmc_0: dwmmc0@f723d000 {
+1030     │   │   │compatible = "hisilicon,hi6220-dw-mshc";
+1031     │   │   │num-slots = <0x1>;
+1032     │   │   │board-mmc-bus-clk = <0x0>;
+1033     │   │   │cap-mmc-highspeed;
+1034     │   │   │non-removable;
+1035     │   │   │reg = <0x0 0xf723d000 0x0 0x1000>;
+1036     │   │   │interrupts = <0x0 0x48 0x4>;
+1037     │   │   │clocks = <&clock_sys HI6220_MMC0_CIUCLK>, <&clock_sys HI6220_MMC0_CLK>;
+1038     │   │   │clock-names = "ciu", "biu";
+1039     │   │   │vmmc-supply = <&ldo19>;
+1040     │   │};
+1041 
+1042 dwmmc_1: dwmmc1@f723e000 {
+1043         compatible = "hisilicon,hi6220-dw-mshc";
+1044         num-slots = <0x1>;
+1045         board-mmc-bus-clk = <0x0>;
+1046         card-detect-delay = <200>;
+1047         hisilicon,peripheral-syscon = <&ao_ctrl>;
+1048         cap-sd-highspeed;
+1049         sd-uhs-sdr12;
+1050         sd-uhs-sdr25;
+1051         sd-uhs-sdr50;
+1052         reg = <0x0 0xf723e000 0x0 0x1000>;
+1053         interrupts = <0x0 0x49 0x4>;
+1054         clocks = <&clock_sys HI6220_MMC1_CIUCLK>, <&clock_sys HI6220_MMC1_CLK>;
+1055         clock-names = "ciu", "biu";
+1056         vqmmc-supply = <&ldo7>;
+1057         vmmc-supply = <&ldo10>;
+1058     };
+```
 ## linux/drivers/clk/hisilicon/clk-hi6220.c 
 ```
  33     { HI6220_MMC1_PAD,  "mmc1_pad", NULL, CLK_IS_ROOT, 100000000, },
