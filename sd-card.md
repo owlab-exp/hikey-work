@@ -1,3 +1,21 @@
+## Hi6220V100 Application Function#Memory Control
+```
+Hi6220 V100 integrates the following three MMC modules:
+z MMC0: Connects to eMMC and supports 1-bit, 4-bit, and 8-bit modes.
+z MMC1: Connects to the SD 3.0 card and supports 1-bit and 4-bit modes (3 V and 1.8 V
+supported for the I/O device).
+z MMC2: Connects to the slave device and supports 1-bit and 4-bit modes.
+```
+
+```
+4-bit and 8-bit HS200 modes defined in the eMMC 4.5 protocol, maximum interface
+frequency of 150 MHz
+```
+
+```
+4-bit DDR transfers defined in the SD 3.0 and MMC 4.41 protocols
+```
+
 ## linux/arch/arm64/boot/dts/hi6220.dtsi
 ```
 1029 dwmmc_0: dwmmc0@f723d000 {
