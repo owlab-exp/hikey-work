@@ -2,6 +2,33 @@
 ```
 #define MMC0_DEFAULT_FREQ       25000000 /* 25MHz */
 ```
+==> Bad result!
+```
+15 /* from 
+ 16  * git clone https://github.com/96boards/u-boot/tree/hikey-rebase
+ 17  * git checkout hikey-rebase
+ 18  */
+ 19 #define DWMMC_MAX_FREQ          50000000 
+ 20 #define DWMMC_MIN_FREQ          378000
+ 21 
+ 22 /* Source clock is configured to 100MHz by ATF bl1*/
+ 23 #define MMC0_DEFAULT_FREQ       100000000 
+ 24 #define MMC1_DEFAULT_FREQ       50000000  
+```
+```
+ 61     switch(index) {
+ 62        case 0:
+ 63           host->bus_hz = MMC0_DEFAULT_FREQ;
+ 64           printf("DWMMC%d's default frequency -> %d", index, MMC0_DEFAULT_FREQ);
+ 65           break;
+ 66        case 1: /* SD Card */
+ 67           host->bus_hz = MMC1_DEFAULT_FREQ;
+ 68           printf("DWMMC%d's default frequency -> %d", index, MMC1_DEFAULT_FREQ);
+ 69           break;
+ 70        default:
+ 71           host->bus_hz = MMC0_DEFAULT_FREQ;
+ 72     }
+```
 ## Boot from u-boot shell
 ### From USB Drive
 ```
