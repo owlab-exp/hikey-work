@@ -1,3 +1,6 @@
+## https://en.wikipedia.org/wiki/Secure_Digital
+After determining that the SD card supports it, the host device can also command the SD card to switch to a higher transfer speed. Until determining the card's capabilities, the host device should not use a clock speed faster than 400 kHz. SD cards other than SDIO (see below) have **a "Default Speed" clock rate of 25 MHz**. The host device is not required to use the maximum clock speed that the card supports. It may operate at less than the maximum clock speed to conserve power.[28] Between commands, the host device can stop the clock entirely.
+
 ## Hi6220V100 Application Function#Memory Control
 ```
 Hi6220 V100 integrates the following three MMC modules:
