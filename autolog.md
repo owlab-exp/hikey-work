@@ -19,11 +19,11 @@
  61     switch(index) {
  62        case 0:
  63           host->bus_hz = MMC0_DEFAULT_FREQ;
- 64           printf("DWMMC%d's default frequency -> %d", index, MMC0_DEFAULT_FREQ);
+ 64           printf("DWMMC%d's default frequency -> %d\n", index, MMC0_DEFAULT_FREQ);
  65           break;
  66        case 1: /* SD Card */
  67           host->bus_hz = MMC1_DEFAULT_FREQ;
- 68           printf("DWMMC%d's default frequency -> %d", index, MMC1_DEFAULT_FREQ);
+ 68           printf("DWMMC%d's default frequency -> %d\n", index, MMC1_DEFAULT_FREQ);
  69           break;
  70        default:
  71           host->bus_hz = MMC0_DEFAULT_FREQ;
