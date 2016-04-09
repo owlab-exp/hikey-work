@@ -75,3 +75,12 @@
 236     { HI6220_CS_ATB_DIV,  "cs_atb_div",  "cs_atb_syspll", CLK_SET_RATE_PARENT, 0x4a4, 0,  4, 7, },
 237 };
 ```
+## linux/drivers/clk/hisilicon/clk-hi6220.c
+```
+ 30 static struct hisi_fixed_rate_clock hi6220_fixed_rate_clks[] __initdata = {
+ 31     { HI6220_REF32K,    "ref32k",   NULL, CLK_IS_ROOT, 32764,     },
+ 32     { HI6220_CLK_TCXO,  "clk_tcxo", NULL, CLK_IS_ROOT, 19200000,  },
+ 33     { HI6220_MMC1_PAD,  "mmc1_pad", NULL, CLK_IS_ROOT, 100000000, },
+ 34     { HI6220_MMC2_PAD,  "mmc2_pad", NULL, CLK_IS_ROOT, 100000000, },
+ 35     { HI6220_MMC0_PAD,  "mmc0_pad", NULL, CLK_IS_ROOT, 200000000, },
+ ```
