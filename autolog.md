@@ -1,3 +1,17 @@
+### 96boards-linux/drivers/usb/dwc2/core.c
+```
+ 662     /* Initialize Host Configuration Register */
+ 663     dwc2_init_fs_ls_pclk_sel(hsotg);
+ 664     /* HJ to make USB default speed HIGH, not FULL
+ 665     if (hsotg->core_params->speed == DWC2_SPEED_PARAM_FULL) {
+ 666         hcfg = readl(hsotg->regs + HCFG);
+ 667         hcfg |= HCFG_FSLSSUPP;
+ 668         writel(hcfg, hsotg->regs + HCFG);
+ 669     }
+ 670     */
+ ```
+ ==> USB default speed to HIGH, not FULL of previous!
+ 
 ### u-boot-2016.03/drivers/mmc/hi6220_dw_mmc.c
 ```
 #define MMC0_DEFAULT_FREQ       25000000 /* 25MHz */
