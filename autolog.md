@@ -1,3 +1,6 @@
+### Call Tracing of USB Speed Initialization - `struct dwc2_hsotg *hsotg`
+- `dwc2_core_host_init` > `dwc2_init_fs_ls_pclk_sel(hsotg)`
+
 ### 96boards-linux/drivers/usb/dwc2/core.c
 By reviewing **u-boot/drivers/usb/host/dwc2.c** and **dwc2.h**. **dwc2.h** has a line `#undef CONFIG_DWC2_DFLT_SPEED_FULL      /* Do not force DWC2 to FS */`.
 ```
