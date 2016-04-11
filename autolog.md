@@ -1,5 +1,18 @@
 ### Call Tracing of USB Speed Initialization - `struct dwc2_hsotg *hsotg`
-- `dwc2_core_host_init` > `dwc2_init_fs_ls_pclk_sel(hsotg)`
+- Last: `dwc2_init_fs_ls_pclk_sel` > `val = HCFG_FSLSPCLKSEL_48_MHZ` or `val = HCFG_FSLSPCLKSEL_30_60_MHZ`
+- Cond: 
+     95     if ((hsotg->hw_params.hs_phy_type == GHWCFG2_HS_PHY_TYPE_ULPI &&
+     96          hsotg->hw_params.fs_phy_type == GHWCFG2_FS_PHY_TYPE_DEDICATED &&
+     97          hsotg->core_params->ulpi_fs_ls > 0) ||
+     98         hsotg->core_params->phy_type == DWC2_PHY_TYPE_PARAM_FS) {
+     99         /* Full speed PHY */
+     100         val = HCFG_FSLSPCLKSEL_48_MHZ;
+     101     } else {
+     102         /* High speed PHY running at full speed or high speed */
+     103         val = HCFG_FSLSPCLKSEL_30_60_MHZ;
+     104     }
+- Prev: `dwc2_core_host_init` > `dwc2_init_fs_ls_pclk_sel(hsotg)`
+- Prev: 
 
 ### 96boards-linux/drivers/usb/dwc2/core.c
 By reviewing **u-boot/drivers/usb/host/dwc2.c** and **dwc2.h**. **dwc2.h** has a line `#undef CONFIG_DWC2_DFLT_SPEED_FULL      /* Do not force DWC2 to FS */`.
