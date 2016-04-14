@@ -47,3 +47,15 @@ enable = arm_efi;
 ```
   arm = loader/arm/linux.c;
 ```
+#### arm_uboot only sections
+kernel
+```
+  arm_uboot_ldflags       = '-Wl,-r,-d';
+  arm_uboot_stripflags    = '--strip-unneeded -K start -R .note -R .comment -R .note.gnu.gold-version';
+...
+  arm_uboot_startup = kern/arm/uboot/startup.S;
+```
+module = boot
+```
+  enable = arm_uboot;
+```
