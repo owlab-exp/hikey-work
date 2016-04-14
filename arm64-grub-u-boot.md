@@ -35,7 +35,15 @@ arm_efi = lib/efi/reboot.c;
 ...
 uboot = lib/uboot/reboot.c;
 ```
-### module - name: mmap
+#### module - name: mmap
 ```
 enable = arm_efi;
+```
+#### module - name: setjmp
+```
+  extra_dist = lib/arm/setjmp.S;
+```
+#### module - name: linux
+```
+  arm = loader/arm/linux.c;
 ```
