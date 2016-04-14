@@ -59,3 +59,14 @@ module = boot
 ```
   enable = arm_uboot;
 ```
+#### (arm64_uboot sections)
+```
+  arm64_uboot_ldflags    =
+  arm64_uboot_stripflags =
+...
+  arm64_uboot_startup = kern/arm64/uboot/startup.S
+```
+module = boot
+```
+  enable = arm64_boot;
+```
