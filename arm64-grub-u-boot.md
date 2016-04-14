@@ -18,3 +18,24 @@
 ```
   arm_uboot_startup = kern/arm/uboot/startup.S;
 ```
+#### arm_efi > arm_uboot
+```
+  arm_efi = kern/arm/efi/init.c;
+  arm_efi = kern/arm/efi/misc.c;
+```
+#### module - name: boot
+```
+enable = arm_efi;
+...
+enable = arm_uboot;
+```
+#### module - name: reboot
+```
+arm_efi = lib/efi/reboot.c;
+...
+uboot = lib/uboot/reboot.c;
+```
+### module - name: mmap
+```
+enable = arm_efi;
+```
